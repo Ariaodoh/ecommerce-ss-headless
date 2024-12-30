@@ -29,7 +29,7 @@ export default async function StudioPage() {
   }
   return(
     <div>
-      <button onClick={() => signOut({ callbackUrl: '/aith/login'})}>Sign Out</button>
+      <button onClick={() => signOut({ callbackUrl: '/auth/login'})}>Sign Out</button>
       <NextStudio config={config} />
     </div>
   );
