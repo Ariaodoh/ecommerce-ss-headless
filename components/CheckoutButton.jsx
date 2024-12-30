@@ -13,6 +13,12 @@ const CheckoutButton = ({gatewayPromise, buttonText, checkoutItems, apiRoute }) 
             body: JSON.stringify({ checkoutItems }),
         });
 
+        if (response.ok){
+            console.error('Error:', response)
+            return toast.error('Something went wrong. Please try again later.');
+
+        }
+
         const { sessionId } = await response.json();
         toast.loading('Redirecting...');
 
