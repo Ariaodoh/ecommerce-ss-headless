@@ -16,8 +16,8 @@ import {structure} from './sanity/structure'
 
 export default defineConfig({
   basePath: '/studio',
-  projectId: projectId || "0kpqmbjb",
-  dataset: dataset || "production",
+  projectId: projectId,
+  dataset: dataset,
   schema,
   plugins: [
     structureTool({structure}),
