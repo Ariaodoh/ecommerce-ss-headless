@@ -1,6 +1,7 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
+import Link from 'next/link';
 
 export default function LoginPage() {
     const handleSignIn  = async (e) => {
@@ -23,7 +24,10 @@ export default function LoginPage() {
                 <label htmlFor='password'>Password</label>
                 <input type='password' id='password' name='password' required/>
                 <button type='submit'>Login</button>
-            </form>       
+            </form>     
+            <span>If you do not already have an account, 
+                <Link href={'/auth/signup'}> Sig up here</Link>  
+            </span>  
         </div>
     );
 }

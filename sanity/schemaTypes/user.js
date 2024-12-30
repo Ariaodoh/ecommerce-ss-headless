@@ -16,11 +16,6 @@ export default {
         validation: (Rule) => Rule.required().min(6),
       },
       {
-        name: 'name',
-        title: 'Name',
-        type: 'string',
-      },
-      {
         name: 'email',
         title: 'Email',
         type: 'string',
