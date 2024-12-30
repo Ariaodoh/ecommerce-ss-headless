@@ -10,7 +10,7 @@
 import { getServerSession } from 'next-auth';
 import { NextStudio } from 'next-sanity/studio';
 import config from '../../../sanity.config';
-import { authOptions } from '../api/auth/[...nextauth]';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 import { signOut } from 'next-auth/react';
 
 export const dynamic = 'force-static'
