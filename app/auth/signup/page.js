@@ -10,8 +10,9 @@ export default function SignUpPage() {
         e.preventDefault();
         const formData = new FormData(e.target);
         const saltRounds = 10;
+        const password = formData.get('password');
 
-        const hashedPassword = await bcrypt.hash(formData.get('password'), saltRounds);
+        const hashedPassword = bcrypt.hash(password, saltRounds);
 
         const user = {
             username: formData.get('username'),
