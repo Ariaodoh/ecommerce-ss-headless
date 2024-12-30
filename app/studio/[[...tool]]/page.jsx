@@ -7,13 +7,30 @@
  * https://github.com/sanity-io/next-sanity
  */
 
-import { NextStudio } from 'next-sanity/studio'
-import config from '../../../sanity.config'
+import { getServerSession } from 'next-auth';
+import { NextStudio } from 'next-sanity/studio';
+import config from '../../../sanity.config';
+import { authOptions } from '../api/auth/[...nextauth]';
+import { signOut } from 'next-auth/react';
 
 export const dynamic = 'force-static'
 
 export { metadata, viewport } from 'next-sanity/studio'
 
-export default function StudioPage() {
-  return <NextStudio config={config} />
+export default async function StudioPage() {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return(
+      <div>
+        <h2>You are not authorized to access this page</h2>
+      </div>
+    )
+  }
+  return(
+    <div>
+      <button onClick={() => signOut({ callbackUrl: '/aith/login'})}>Sign Out</button>
+      <NextStudio config={config} />
+    </div>
+  );
 }
